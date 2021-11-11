@@ -14,7 +14,8 @@ namespace Task_1
         static void ShowDelegateWork()
         {
             SubstractDelegate sub = SubstractThroughDelegate;
-            Console.WriteLine("Результат вызова делегата: " + sub.Invoke(20, 40));
+            Console.WriteLine("Результат вызова делегата 1 способ: " + sub.Invoke(20, 40));
+            Console.WriteLine("Результат вызова делегата 2 способ: " + sub(12, 183));
         }
 
         static int SubstractThroughDelegate(int a,int b)
