@@ -7,8 +7,16 @@ namespace Task_1
         public delegate int SubstractDelegate(int a,int b);
         static void Main(string[] args)
         {
-            ShowDelegateWork();
+            Program pr = new Program();
+            pr.ShowCalTwoMethodByDelegate();
 
+        }
+
+        void ShowCalTwoMethodByDelegate()
+        {
+            SubstractDelegate sub = SubstractThroughDelegate;
+            sub += PlusThroughDelegate;
+            sub(10, 100);
         }
 
         static void ShowDelegateWork()
@@ -19,8 +27,14 @@ namespace Task_1
         }
 
         static int SubstractThroughDelegate(int a,int b)
-        {
+        {   
+            Console.WriteLine(b - a);
             return b - a;
+        }
+        int PlusThroughDelegate(int a, int b)
+        {
+            Console.WriteLine(b + a);
+            return b + a;
         }
 
         static void FillDataExeption()
