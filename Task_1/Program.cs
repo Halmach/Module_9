@@ -16,6 +16,7 @@ namespace Task_1
         {
             SubstractDelegate sub = SubstractThroughDelegate;
             sub += PlusThroughDelegate;
+            sub -= PlusThroughDelegate;
             sub(10, 100);
         }
 
