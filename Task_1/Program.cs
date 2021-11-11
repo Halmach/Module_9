@@ -6,8 +6,8 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-            ShowArgumentOutOfRangeException();
 
+            ShowRankException();
         }
 
         static void FillDataExeption()
@@ -27,6 +27,24 @@ namespace Task_1
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                Console.WriteLine(e.StackTrace.ToString());
+            }
+            finally
+            {
+                Console.WriteLine("Блок finaly сработал");
+            }
+        }
+
+        static void ShowRankException()
+        {
+            try
+            {
+                Console.WriteLine("Блок try сработал");
+                throw new RankException();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.GetType());
                 Console.WriteLine(e.StackTrace.ToString());
             }
             finally
