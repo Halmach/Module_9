@@ -4,10 +4,22 @@ namespace Task_1
 {
     class Program
     {
+        public delegate int SubstractDelegate(int a,int b);
         static void Main(string[] args)
         {
+            ShowDelegateWork();
 
-            ShowRankException();
+        }
+
+        static void ShowDelegateWork()
+        {
+            SubstractDelegate sub = SubstractThroughDelegate;
+            Console.WriteLine("Результат вызова делегата: " + sub.Invoke(20, 40));
+        }
+
+        static int SubstractThroughDelegate(int a,int b)
+        {
+            return b - a;
         }
 
         static void FillDataExeption()
