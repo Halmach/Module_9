@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Task_1
 {
     class Program
     {
         public delegate int SubstractDelegate(int a,int b);
+        public delegate int RandomNumberDelegate();
         delegate void ShowMessageDelegate();
         delegate int SumDelegate(int a, int b, int c);
         delegate bool CheckLengthDelegate(string row);
         static void Main(string[] args)
         {
-            AnonimusMethodShow();
+            LambdaRandomShow();
 
 
         }
@@ -24,6 +26,25 @@ namespace Task_1
 
             md += () => Console.WriteLine("Hello World! from Lambda");
             md();
+        }
+
+        static void LambdaRandomShow()
+        {
+            RandomNumberDelegate randomNumberDelegate = delegate()
+            {
+                return new Random().Next(0, 100);
+            };
+
+            randomNumberDelegate += () =>
+            {
+                return new Random().Next(101, 201);
+            };
+
+            int result = randomNumberDelegate();
+            Console.WriteLine(result);
+            
+
+
         }
 
         static void ShowDelegates()
