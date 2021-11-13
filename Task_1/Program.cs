@@ -10,20 +10,25 @@ namespace Task_1
         delegate bool CheckLengthDelegate(string row);
         static void Main(string[] args)
         {
-
             ShowDelegates();
+
+
         }
 
         static void ShowDelegates()
         {
-            ShowMessageDelegate showMessageDelegate = ShowMessage;
+            //ShowMessageDelegate showMessageDelegate = ShowMessage;
+            //showMessageDelegate.Invoke();
+            Action showMessageDelegate = ShowMessage;
             showMessageDelegate.Invoke();
 
-            SumDelegate sumDelegate = Sum;
+            //SumDelegate sumDelegate = Sum;
+            Func<int,int,int,int> sumDelegate = Sum;
             int result = sumDelegate.Invoke(1, 30, 120);
             Console.WriteLine(result);
 
-            CheckLengthDelegate checkLengthDelegate = CheckLength;
+            //CheckLengthDelegate checkLengthDelegate = CheckLength;
+            Predicate<string> checkLengthDelegate = CheckLength;
             bool status = checkLengthDelegate.Invoke("skill_factory");
             Console.WriteLine(status);
         }
