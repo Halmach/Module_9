@@ -10,9 +10,17 @@ namespace Task_1
         delegate bool CheckLengthDelegate(string row);
         static void Main(string[] args)
         {
-            ShowDelegates();
+            AnonimusMethodShow();
 
 
+        }
+
+        static void AnonimusMethodShow()
+        {
+            ShowMessageDelegate md = delegate()
+            {
+                Console.WriteLine("Hello World!");
+            };
         }
 
         static void ShowDelegates()
