@@ -17,10 +17,13 @@ namespace Task_1
 
         static void AnonimusMethodShow()
         {
-            ShowMessageDelegate md = delegate()
+            ShowMessageDelegate md = delegate ()
             {
                 Console.WriteLine("Hello World!");
             };
+
+            md += () => Console.WriteLine("Hello World! from Lambda");
+            md();
         }
 
         static void ShowDelegates()
