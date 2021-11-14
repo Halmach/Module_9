@@ -12,8 +12,19 @@ namespace Task_1
     }
 
 
+    class Parent
+    {
+
+    }
+
+    class Child : Parent
+    {
+
+    }
+
     class Program
     {
+        public delegate void DemonstrateType(Child clChild);
         public delegate Car ShowCarType();
         public delegate int SubstractDelegate(int a,int b);
         public delegate int RandomNumberDelegate();
@@ -22,12 +33,13 @@ namespace Task_1
         delegate bool CheckLengthDelegate(string row);
         static void Main(string[] args)
         {
-            ShowCarType ctm = ShowType;
-            ShowCarType ctm2 = ShowType_2;
+            DemonstrateType dt = DemType;
+            dt(new Child());
+        }
 
-            ctm.Invoke();
-            ctm2();
-
+        public static void DemType(Parent prParent)
+        {
+            Console.WriteLine(prParent.GetType());
         }
 
         public static Car ShowType()
