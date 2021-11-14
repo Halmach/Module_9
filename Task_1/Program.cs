@@ -3,8 +3,18 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace Task_1
 {
+
+    class Car{}
+
+    class Lexus : Car
+    {
+
+    }
+
+
     class Program
     {
+        public delegate Car ShowCarType();
         public delegate int SubstractDelegate(int a,int b);
         public delegate int RandomNumberDelegate();
         delegate void ShowMessageDelegate();
@@ -12,9 +22,24 @@ namespace Task_1
         delegate bool CheckLengthDelegate(string row);
         static void Main(string[] args)
         {
-            LambdaRandomShow();
+            ShowCarType ctm = ShowType;
+            ShowCarType ctm2 = ShowType_2;
 
+            ctm.Invoke();
+            ctm2();
 
+        }
+
+        public static Car ShowType()
+        {
+            Console.WriteLine("Car type");
+            return new Car();
+        }
+
+        public static Lexus ShowType_2()
+        {
+            Console.WriteLine("Car Lexus");
+            return new Lexus();
         }
 
         static void AnonimusMethodShow()
